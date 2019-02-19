@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="first">ID
+        <input type="text" id="pin">
+        <button type="button" id="connect" onclick="connect1()">connect</button>
+    </label>
+    <label for="message">
+        message:
+        <input type="text" id="first">
+
+        <button type="button" id="button" onclick="send()">Send</button>
+    </label>
+    <p id="textbox"></p>
+    <script>
+        let through = document.getElementById("pin").value;
+        let key = document.getElementById("first").value;
+        let connect = document.getElementById("connect")
+        var peer = new Peer({ key: 'lwjd5qra8257b9' });
+        function connect1() {
+            console.log(through)
+            var conn = peer.connect(through, { reliable: true});
+        }
+        function send(){
+            conn.on('open', function(){
+  // here you have conn.id
+  conn.send(through);
+});
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
