@@ -22,18 +22,24 @@
     </label>
     <p id="textbox"></p>
     <script>
-        let through = document.getElementById("pin").value;
+       
         let key = document.getElementById("first").value;
-        let connect = document.getElementById("connect")
+        
         var peer = new Peer({ key: 'lwjd5qra8257b9' });
+       
+        console.log("pin is " + pin)
         function connect1() {
-            console.log(through)
-            var conn = peer.connect(through, { reliable: true});
+            let pin = document.getElementById("pin").value;
+            console.log(pin)
+            var conn = peer.connect(pin);
+            console.log("rat")
         }
         function send(){
+            console.log("seeeee")
             conn.on('open', function(){
   // here you have conn.id
-  conn.send(through);
+  console.log("clci")
+  conn.send("hiiii");
 });
         }
 
