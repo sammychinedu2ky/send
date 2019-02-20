@@ -25,7 +25,9 @@
        
         let key = document.getElementById("first").value;
         
-        var peer = new Peer({ key: 'lwjd5qra8257b9' });
+          var peer = new Peer(null, {
+                        debug: 2
+                    });
        var conn;
         console.log("pin is " + pin)
         function connect1() {
