@@ -26,12 +26,12 @@
         let key = document.getElementById("first").value;
         
         var peer = new Peer({ key: 'lwjd5qra8257b9' });
-       
+       var conn;
         console.log("pin is " + pin)
         function connect1() {
             let pin = document.getElementById("pin").value;
             console.log(pin)
-            var conn = peer.connect(pin);
+            conn = peer.connect(pin);
             console.log("rat")
         }
         function send(){
