@@ -25,28 +25,32 @@
        
         let key = document.getElementById("first").value;
         
-          var peer = new Peer(null, {
-                        debug: 2
-                    });
+        var peer = new Peer(null, { debug: 2 });
        var conn;
         console.log("pin is " + pin)
         function connect1() {
             let pin = document.getElementById("pin").value;
             console.log(pin)
-            conn = peer.connect(pin);
-            console.log("rat")
-        }
-        function send(){
-            console.log("seeeee")
-            console.log(peer.id)
+           conn = peer.connect(pin, {
+                        reliable: true
+                    });
+            console.log(typeof pin)
             conn.on('open', function(){
   // here you have conn.id
   console.log("clci")
   conn.send("hiiii");
-});
+         }) }
+        function send(){
+            console.log("seeeee")
+            if(conn.open){
+                console.log("rattt")
+            conn.on('open', function(){
+  // here you have conn.id
+  console.log("clci")
+  conn.send("hiiii");
+});}
         }
-
-
+     
 
 
     </script>
